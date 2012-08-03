@@ -1,0 +1,19 @@
+<package>
+  <description brief="dmp">
+
+     dmp
+
+  </description>
+  <author>Scott</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/dmp</url>
+  <depend package="std_msgs"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="common_rosdeps" />
+  <rosdep name="eigen" />
+
+</package>
+
+

@@ -1,0 +1,42 @@
+# A starting state to begin planning from
+float64[] x_0
+
+# A starting instantaneous change of state to begin planning from
+float64[] x_dot_0
+
+# The time in seconds at which to begin the planning segment. 
+# Should only be nonzero when doing a partial segment plan that does not start at beginning of DMP
+float64 t_0
+
+# The goal of the plan
+float64[] goal
+
+# For dimensions with a value greater than zero, planning will continue until 
+# the predicted state is within the specified distance of the goal in all such dimensions.
+# Dimensions with values less than or equal to zero will be ignored.
+# Trajectory plan will always be at least tau seconds long.
+float64[] goal_thresh
+
+# The length of the requested plan segment in seconds. Set to -1 if plan until goal is desired.
+float64 seg_length
+
+# A time constant to set the length of DMP replay in seconds until 95% phase convergence
+float64 tau
+
+# The time resolution, in seconds, at which to plan
+float64 dt
+
+# Number of times to loop in numerical integration.  This can generally be 1, unless dt is large (>1 second)
+int32 integrate_iter
+
+---
+
+# Returns a planned trajectory. 
+DMPTraj plan
+
+#1 if the final time is greater than tau AND the planned position is within goal_thresh of the goal, 0 otherwise
+uint8 at_goal
+
+
+
+

@@ -1,0 +1,3 @@
+<launch>
+	<node name="dmp" pkg="dmp" type="dmp_server" respawn="false" output="screen"/>
+</launch>

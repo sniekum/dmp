@@ -1,0 +1,17 @@
+# Provide a demonstration traj 
+DMPTraj demo
+
+# Provide a k gain and d gain for each DOF.  Should match number of DOFs in the demo.
+float64[] k_gains
+float64[] d_gains
+
+# Set number of basis functions to use to approx the DMP forcing function
+int32 num_bases
+
+---
+
+# Returns a DMP for each DOF, intended to be linked together with a single phase variable
+DMPData[] dmp_list
+
+# A time constant (in seconds) that will cause the DMPs to replay at the same speed they were demonstrated. 
+float64 tau

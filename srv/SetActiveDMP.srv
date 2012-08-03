@@ -1,0 +1,11 @@
+# Input a DMP for each DOF, which will be linked together with a single phase variable
+DMPData[] dmp_list
+
+---
+
+#True if no errors
+bool success
+
+
+
+
