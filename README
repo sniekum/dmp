@@ -1,0 +1,11 @@
+Documentation for dmp
+Package maintained by Scott Niekum
+sniekum@willowgarage.com
+sniekum@cs.umass.edu
+****************************************
+
+
+OVERVIEW
+---------
+
+This package is a general, robot-agnostic implementation of dynamic movement primitives (DMPs).  A good reference on DMPs can be found at: http://www-clmc.usc.edu/publications/P/pastor-ICRA2009.pdf
