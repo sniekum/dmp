@@ -1,6 +1,5 @@
 <stack>
-  <description brief="ar_track_alvar">Implements Dynamic Movement Primitives in a robot agnostic way</description>
-  </description>
+  <description brief="dmp">Implements Dynamic Movement Primitives in a robot agnostic way</description>
   <author>Maintained by Scott Niekum</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
