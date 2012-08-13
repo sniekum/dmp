@@ -75,7 +75,7 @@ public:
 	std::vector<double> getWeights(){return weights;}
 
 protected:
-	int n_bases;					    //The number of bases in the approximator
+	int n_bases;					//The number of bases in the approximator
 	std::vector<double> weights;	//The weight vector
 };
 
