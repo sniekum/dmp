@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.4.6)
 include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+set(ROSPACK_MAKEDIST true)
 
 # Set the build type.  Options are:
 #  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
@@ -35,3 +36,5 @@ include_directories(${Eigen_INCLUDE_DIRS})
 rosbuild_add_library(dmp src/dmp.cpp src/fourier_approx.cpp src/radial_approx.cpp)
 rosbuild_add_executable(dmp_server nodes/dmp_server.cpp)
 target_link_libraries(dmp_server dmp)
+
+rosbuild_make_distribution(0.2.0)
