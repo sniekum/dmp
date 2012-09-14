@@ -180,14 +180,10 @@ void generatePlan(const vector<DMPData> &dmp_list,
 	x_dot_vecs = new vector<double>[dims];
 	FunctionApprox **f = new FunctionApprox*[dims];
 
-	for(int i=0; i<dims; i++){
-		x_vecs[i].push_back(x_0[i]);
-		x_dot_vecs[i].push_back(x_dot_0[i]);
+	for(int i=0; i<dims; i++)
 		f[i] = new FourierApprox(dmp_list[i].weights);
-	}
-	n_pts++;
+	
 	double t = 0;
-	t_vec.push_back(t);
 	double f_eval;
 
 	//Plan for at least tau seconds.  After that, plan until goal_thresh is satisfied.
@@ -202,8 +198,15 @@ void generatePlan(const vector<DMPData> &dmp_list,
 
 		//Plan in each dimension
 		for(int i=0; i<dims; i++){
-			double x = x_vecs[i][n_pts-1];
-			double v = x_dot_vecs[i][n_pts-1] * tau;
+            double x,v;
+            if(n_pts==0){
+                x = x_0[i];
+                v = x_dot_0[i];
+            }
+            else{			
+                x = x_vecs[i][n_pts-1];
+			    v = x_dot_vecs[i][n_pts-1] * tau;
+            }
 
 			//Numerically integrate to get new x and v
 			for(int iter=0; iter<integrate_iter; iter++)
