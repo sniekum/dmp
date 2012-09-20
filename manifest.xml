@@ -11,7 +11,6 @@
   <depend package="std_msgs"/>
   <depend package="rospy"/>
   <depend package="roscpp"/>
-  <depend package="common_rosdeps" />
   <rosdep name="eigen" />
 
 </package>
