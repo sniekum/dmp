@@ -9,5 +9,5 @@
   <depend stack="ros" />
   <depend stack="ros_comm" /> <!-- rospy, roscpp --> 
 
-  <version>0.3.0</version>
+  <version>0.4.0</version>
 </stack>
