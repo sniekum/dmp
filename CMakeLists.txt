@@ -31,10 +31,11 @@ rosbuild_gensrv()
 #target_link_libraries(example ${PROJECT_NAME})
 
 find_package(Eigen REQUIRED)
-include_directories(${Eigen_INCLUDE_DIRS})
+include_directories(${EIGEN_INCLUDE_DIRS})
+add_definitions(${EIGEN_DEFINITIONS})
 
 rosbuild_add_library(dmp src/dmp.cpp src/fourier_approx.cpp src/radial_approx.cpp)
 rosbuild_add_executable(dmp_server nodes/dmp_server.cpp)
 target_link_libraries(dmp_server dmp)
 
-rosbuild_make_distribution(0.4.0)
+rosbuild_make_distribution(0.5.0)
