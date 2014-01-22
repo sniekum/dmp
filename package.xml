@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>dmp</name>
+  <version>0.0.0</version>
+  <description>Implements Dynamic Movement Primitives in a robot agnostic way</description>
+
+  <author>Scott Niekum</author>
+  <maintainer email="sniekum@cs.umass.edu">Scott Niekum</maintainer>
+
+  <license>BSD</license>
+  
+  <url type="website">http://www.ros.org/wiki/dmp</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>common_msgs</run_depend> <!-- nav_msgs, sensor_msgs, geometry_msgs -->
+  <run_depend>image_common</run_depend>
+  <run_depend>ros</run_depend>
+  <run_depend>ros_comm</run_depend>  <!-- rospy, roscpp --> 
+  
+</package>
