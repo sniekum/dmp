@@ -15,7 +15,7 @@
  *     copyright notice, this list of conditions and the following
  *     disclaimer in the documentation and/or other materials provided
  *     with the distribution.
- *   * Neither the name of the Robert Bosch nor the names of its
+ *   * Neither the name of Willow Garage nor the names of its
  *     contributors may be used to endorse or promote products derived
  *     from this software without specific prior written permission.
  *
@@ -38,40 +38,43 @@
   * \author Scott Niekum
   */
 
-#ifndef DMP_H_
-#define DMP_H_
+#ifndef LINEAR_APPROX_H_
+#define LINEAR_APPROX_H_
 
-#include "ros/ros.h"
-#include "dmp/LearnDMPFromDemo.h"
-#include "dmp/GetDMPPlan.h"
-#include "dmp/SetActiveDMP.h"
-#include "dmp/radial_approx.h"
-#include "dmp/fourier_approx.h"
-#include "dmp/linear_approx.h"
-#include <math.h>
+#include "dmp/function_approx.h"
+#include <iostream>
 
 namespace dmp{
 
-double calcPhase(const double curr_time, const double tau);
+typedef std::pair<double, double> pt_pair;
 
-void learnFromDemo(const DMPTraj &demo,
-				   const std::vector<double> &k_gains,
-				   const std::vector<double> &d_gains,
-				   const int &num_bases,
-				   std::vector<DMPData> &dmp_list);
+      
+/// Class for function approximation by recording points and linearly interpolating
+class LinearApprox : public FunctionApprox{
+public:
+	LinearApprox();
+        LinearApprox(std::vector<double> X, std::vector<double> Y);
+	virtual ~LinearApprox();
 
-void generatePlan(const std::vector<DMPData> &dmp_list,
-				  const std::vector<double> &x_0,
-				  const std::vector<double> &x_dot_0,
-				  const double &t_0,
-				  const std::vector<double> &goal,
-				  const std::vector<double> &goal_thresh,
-				  const double &seg_length,
-				  const double &tau,
-				  const double &total_dt,
-				  const int &integrate_iter,
-				  DMPTraj &plan,
-				  uint8_t &at_goal);
+	/**\brief Evaluate the function approximator at point x
+	 * \param x The point at which to evaluate
+	 * \return The scalar value of the function at x
+	 */
+	virtual double evalAt(double x);
+
+	/**\brief Computes the least squares weights given a set of data points
+	 * \param X A vector of the domain values of the points
+	 * \param Y A vector of the target values of the points
+	 */
+	virtual void leastSquaresWeights(double *X, double *Y, int n_pts);
+
+        
+private:
+ 
+        std::vector<pt_pair> points;
+
+};
 
 }
-#endif /* DMP_H_ */
+
+#endif /* LINEAR_APPROX_H_ */
