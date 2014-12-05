@@ -39,6 +39,6 @@ include_directories(
   ${Eigen_INCLUDE_DIRS}
 )
 
-add_library(dmp src/dmp.cpp src/fourier_approx.cpp src/radial_approx.cpp)
+add_library(dmp src/dmp.cpp src/fourier_approx.cpp src/radial_approx.cpp src/linear_approx)
 add_executable(dmp_server nodes/dmp_server.cpp)
 target_link_libraries(dmp_server dmp ${catkin_LIBRARIES})
