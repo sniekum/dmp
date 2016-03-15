@@ -6,6 +6,7 @@ if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
 endif()
 
 find_package(catkin REQUIRED COMPONENTS
+cmake_modules
 roscpp
 rospy
 message_generation
