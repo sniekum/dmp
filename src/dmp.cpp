@@ -147,15 +147,19 @@ void learnFromDemo(const DMPTraj &demo,
  * @param[in] dmp_list An n-dim list of DMPs that are all linked by a single canonical (phase) system
  * @param[in] x_0 The (n-dim) starting state for planning
  * @param[in] x_dot_0 The (n-dim) starting instantaneous change in state for planning
- * @param[in] t_0 The time in seconds at which to begin the planning segment. Should only be nonzero when doing a partial segment plan that does not start at beginning of DMP
+ * @param[in] t_0 The time in seconds at which to begin the planning segment. Should only be nonzero when doing
+              a partial segment plan that does not start at beginning of DMP
  * @param[in] goal The (n-dim) goal point for planning
- * @param[in] goal_thresh Planning will continue until system is within the specified threshold of goal in each dimension
+ * @param[in] goal_thresh Planning will continue until system is within the specified threshold of goal
+              in each dimension
  * @param[in] seg_length The length of the requested plan segment in seconds. Set to -1 if plan until goal is desired.
- * @param[in] tau The time scaling constant (in this implementation, it is the desired length of the TOTAL (not just this segment) DMP execution in seconds)
+ * @param[in] tau The time scaling constant (in this implementation, it is the desired length of the TOTAL
+              (not just this segment) DMP execution in seconds)
  * @param[in] total_dt The desired time resolution of the plan
  * @param[in] integrate_iter The number of loops used when numerically integrating accelerations
  * @param[out] plan An n-dim plan starting from x_0
- * @param[out] at_goal True if the final time is greater than tau AND the planned position is within goal_thresh of the goal
+ * @param[out] at_goal True if the final time is greater than tau AND the planned position is within goal_thresh
+               of the goal
  */
 void generatePlan(const vector<DMPData> &dmp_list,
 				  const vector<double> &x_0,

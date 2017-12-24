@@ -24,6 +24,10 @@
   <run_depend>ros_comm</run_depend>  <!-- rospy, roscpp -->
 
   <build_depend>message_generation</build_depend>
+  <build_depend>dmp_generate_messages</build_depend>
+
   <run_depend>message_runtime</run_depend>
-  
+  <run_depend>dmp_generate_messages</run_depend>
+
+
 </package>
